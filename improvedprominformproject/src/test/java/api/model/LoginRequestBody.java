@@ -1,8 +1,6 @@
 package api.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-@JsonSerialize
+/*Не удалять геттеры и конструктор*/
 public class LoginRequestBody {
     private String armType;
     private String login;
@@ -30,5 +28,21 @@ public class LoginRequestBody {
     public LoginRequestBody setUid(String uid) {
         this.uid = uid;
         return this;
+    }
+
+    public String getArmType() {
+        return armType;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUid() {
+        return uid;
     }
 }

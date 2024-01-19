@@ -12,7 +12,7 @@ import static helpers.ReadObject.readIdInDelegateObject;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TestMethodOrder(MethodOrderer.class)
+//@TestMethodOrder(MethodOrderer.class)
 public class DelegateTest {
 
     LoginTest login = new LoginTest();
@@ -23,7 +23,7 @@ public class DelegateTest {
     }
 
     @Test
-    @Order(1)
+//    @Order(1)
     void createDelegateTest() {
         DelegateRequestBodyModel newDelegate = DelegateRequestBodyModel.builder()
                 .setFirstName("Аластер")
@@ -50,7 +50,7 @@ public class DelegateTest {
     }
 
     @Test
-    @Order(3)
+//    @Order(3)
     void deleteDelegateTest() {
         given(delegateRequestSpec)
             .when()
@@ -62,7 +62,7 @@ public class DelegateTest {
     }
 
     @Test
-    @Order(2)
+//    @Order(2)
     void editDelegate() {
         DelegateRequestBodyModel editDelegete = DelegateRequestBodyModel.builder()
                 .setFirstName("Гэндальф")

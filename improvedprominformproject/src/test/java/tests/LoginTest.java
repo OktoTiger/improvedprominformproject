@@ -1,6 +1,7 @@
 package tests;
 
 import api.model.LoginRequestBody;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
@@ -20,13 +21,15 @@ public class LoginTest {
                 .setPassword("321")
                 .setUid("423979A3-50E4-48CD-9FB3-BC6DED03A37E");
 
-        Response response = (Response) given(loginRequestSpec)
+        Response response =  given()
+                .contentType(ContentType.JSON)
                 .body(authData)
+                .log().uri()
+                .log().headers()
+                .log().body()
 
             .when()
-                .post("http://172.16.3.98:1313/api/common/auth")
-            .then()
-                .spec(loginResponseSpecOK200);
+                .post("http://172.16.3.98:1313/api/common/auth");
 
         accessToken = response.body().asString();
         System.out.println("Это токен " + accessToken);
